@@ -1,0 +1,12 @@
+---
+- hosts: all
+  ignore_errors: yes
+  tasks:
+    - name: Setup 
+      setup:
+    - name: Get information about current path
+      shell: ls -l
+    - name: Get information about os
+      shell: cat /etc/os-release
+    - name: Get information about cpu
+      shell: cat /proc/cpuinfo
