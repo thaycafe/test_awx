@@ -13,7 +13,7 @@
     - name: install nginx
       yum:
         name:
-          - epel-release 
+          - nginx 
         state: latest
 
     - name: copy nginx config file
