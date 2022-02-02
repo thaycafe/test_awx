@@ -1,9 +1,20 @@
 - name: Configure webserver with nginx
   hosts: all
   tasks:
+    - name: Removing everything
+      block:
+        - name: Removing package
+          yum:
+            name: nginx
+            state: absent
+        - name: Removing files
+          shell: rm -rf /etc/nginx/* && rm -rf /usr/share/nginx/*
+          
     - name: install nginx
       yum:
-        name: nginx
+        name:
+          - epel-release 
+          - nginx
         state: latest
 
     - name: copy nginx config file
