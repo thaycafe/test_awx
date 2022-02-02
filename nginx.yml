@@ -22,11 +22,12 @@
         line: 'include /etc/nginx/conf.d/*.conf;'
         state: present
 
-    - name: copy nginx config file
-      copy: 
-        src: files/nginx.conf
-        dest: /etc/nginx/conf.d/
-
+    - name: Configuring nginx port
+      lineinfile:
+        path: /etc/nginx/nginx.conf
+        regexp: '80'
+        line: '8080'
+        state: present
 
     - name: copy index.html
       template: 
