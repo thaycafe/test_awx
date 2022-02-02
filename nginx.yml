@@ -2,7 +2,7 @@
   hosts: all
   tasks:
     - name: install nginx
-      package:
+      yum:
         name: nginx
         state: latest
 
