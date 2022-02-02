@@ -29,11 +29,17 @@
         line: 'listen       8080;'
         state: present
 
-    - name: copy index.html
-      template: 
-        src: files/index.html.j2
-        dest: /usr/share/nginx/html/index.html
-        mode: 0644
+    - name: Configuring nginx port
+      lineinfile:
+        path: /etc/nginx/nginx.conf
+        line: '        listen       [::]:80;'
+        state: absent
+
+#    - name: copy index.html
+#      template: 
+#        src: files/index.html.j2
+#        dest: /usr/share/nginx/html/index.html
+#        mode: 0644
 
 
     - name: restart nginx
