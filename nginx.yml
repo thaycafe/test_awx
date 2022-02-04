@@ -1,6 +1,5 @@
 - name: Configure webserver with nginx
   hosts: all
-  strategy: mitogen_linear
   tasks:
     - name: Removing everything
       block:
